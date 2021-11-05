@@ -13,22 +13,17 @@ import javax.lang.model.util.Elements
 val rss_site = "http://rss.cnn.com/rss/edition_africa.rss"
 
 fun main() {
-//    embeddedServer(Netty, port = 8080, host = "0.0.0.0") {
-//        configureRouting()
-//    }.start(wait = true)
-//    println("hello")
     val doc = Jsoup.connect(rss_site).parser(Parser.xmlParser()).get()
 //    println(doc)
-//    log(doc.title())
-//    println(doc.select("a").first())
-    val link: Element = doc.select("description").first()
-    println(link)
-    for(some in doc.select("description")){
+    val first = doc.select("title").first()
+    val titleText: String = first.text()
+    println(titleText)
+//    val link: Element = doc.select("description").first()
+//    println(link)
+    for(some in doc.select("title")){
         println(some)
-    }
-
-
-
-
-
+//    }
+//    val
+//    fun filterString()
 }
+
